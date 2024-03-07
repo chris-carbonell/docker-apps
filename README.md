@@ -11,6 +11,11 @@ my small home server for docker apps
 * launch all apps:<br>
 `./launch.sh`
 
+# Main Tech
+* **Traefik** for reverse proxy (e.g., app.domain.com)
+* **Cloudflare** for security and performance
+* **Portainer** for container management
+
 # Table of Contents
 * [Cloudflare DDNS](/cloudflare-ddns)<br>Cloudflare DDNS updater
 * [Portainer](/portainer)<br>container management
