@@ -8,6 +8,7 @@ my small home server for docker apps
 * help others get started with their own home servers
 
 # Table of Contents
+* [Portainer](/portainer)<br>container management
 * [Traefik](/traefik)<br>reverse proxy and load balancer
 
 # Roadmap
