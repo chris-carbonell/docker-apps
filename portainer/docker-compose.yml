@@ -1,0 +1,54 @@
+version: '3.7'
+
+name: ${PROJECT_NAME}  # project name (aka stack)
+
+services:
+
+  # portainer
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: ${PROJECT_NAME}
+
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+
+      # routers
+
+      ## http
+      - "traefik.http.routers.${PROJECT_NAME}.entrypoints=web"
+      - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${SUBDOMAIN}.${DOMAIN}`)"
+
+      ## https
+      - "traefik.http.routers.${PROJECT_NAME}-secure.entrypoints=websecure"
+      - "traefik.http.routers.${PROJECT_NAME}-secure.rule=Host(`${SUBDOMAIN}.${DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}-secure.tls=true"
+      - "traefik.http.routers.${PROJECT_NAME}-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.${PROJECT_NAME}-secure.service=${PROJECT_NAME}"
+
+      # middlewares
+      - "traefik.http.routers.${PROJECT_NAME}.middlewares=https-redirect@file"
+
+      # # services
+      - "traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=${APP_PORT}"
+    
+    ports:
+      # - 8000:8000  # edge agent
+      # - 9000:9000  # http
+      - ${APP_PORT}:9443  # https
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data:/data
+    
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
