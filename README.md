@@ -9,3 +9,7 @@ my small home server for docker apps
 
 # Table of Contents
 * [Traefik](/traefik)<br>reverse proxy and load balancer
+
+# Roadmap
+* [ ] DAG for launching apps (basically, traefik >> postgres >> everything else)
+* [ ] use one central PostgreSQL container for all apps
