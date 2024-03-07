@@ -1,0 +1,6 @@
+# secrets
+.env
+certs/
+
+# working
+logs/
