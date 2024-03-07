@@ -1,0 +1,18 @@
+version: '2'
+
+name: ${PROJECT_NAME}  # project name (aka stack)
+
+services:
+
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns:latest
+    container_name: ${PROJECT_NAME}
+
+    restart: always
+    
+    environment:
+      - API_KEY=${CLOUDFLARE_DDNS_TOKEN}
+      - ZONE=${DOMAIN}
+      - PROXIED=true
+      - PUID=${PUID}
+      - PGID=${PGID}
