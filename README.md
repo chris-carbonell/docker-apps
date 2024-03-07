@@ -12,6 +12,7 @@ my small home server for docker apps
 `./launch.sh`
 
 # Table of Contents
+* [Cloudflare DDNS](/cloudflare-ddns)<br>Cloudflare DDNS updater
 * [Portainer](/portainer)<br>container management
 * [Traefik](/traefik)<br>reverse proxy and load balancer
 
