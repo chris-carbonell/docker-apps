@@ -18,6 +18,7 @@ my small home server for docker apps
 
 # Table of Contents
 * [Cloudflare DDNS](/cloudflare-ddns)<br>Cloudflare DDNS updater
+* [Joplin](/joplin)<br>note-taking in markdown
 * [Portainer](/portainer)<br>container management
 * [Traefik](/traefik)<br>reverse proxy and load balancer
 
