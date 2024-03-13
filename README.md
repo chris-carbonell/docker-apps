@@ -12,7 +12,7 @@ my small home server for docker apps
 `./launch.sh`
 
 # Main Tech
-* **Traefik** for reverse proxy (e.g., app.domain.com)
+* **Traefik** for reverse proxy
 * **Cloudflare** for security and performance
 * **Portainer** for container management
 
